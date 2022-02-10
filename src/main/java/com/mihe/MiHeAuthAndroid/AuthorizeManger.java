@@ -2,9 +2,13 @@ package com.mihe.MiHeAuthAndroid;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Handler;
+import android.os.UserHandle;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import com.google.gson.Gson;
+
+import javax.security.auth.callback.UnsupportedCallbackException;
 
 
 public class AuthorizeManger {
@@ -44,6 +48,16 @@ public class AuthorizeManger {
 
         @JavascriptInterface
         public String getUserId(String data) {
+            if (user != null) {
+                Gson gson = new Gson();
+                return gson.toJson(user);
+            }
+            return "";
+        }
+
+        @JavascriptInterface
+        public String getUserIdwithParams(String data,AuthHandler handler) {
+            MiheUserModel user = handler.handle(passedData);
             if (user != null) {
                 Gson gson = new Gson();
                 return gson.toJson(user);
