@@ -2,7 +2,7 @@
 
 
 
-Add this to your podfile and run pod install to install:
+Add this to your build.gradle and run sync:
 
 ```groovy
 implementation 'io.github.yl172326:MiHeAuthAndroid:1.1'
