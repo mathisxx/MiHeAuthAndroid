@@ -1,1 +1,6 @@
 /build
+*.properties
+*.gitignore
+publish_aar.gradle
+*.gpg
+*.kbx

@@ -16,13 +16,13 @@ public class AuthorizeManger {
     Context mContext;
     String passedData = "";
     MiheUserModel user;
+    WebAppInterface webInterface;
 
     @SuppressLint("SetJavaScriptEnabled")
     public void init(Context c, WebView wv) {
         webView = wv;
         mContext = c;
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.addJavascriptInterface(new WebAppInterface(c), "mihe");
     }
 
     public String getAuthorizeDataFromH5() {
@@ -31,19 +31,33 @@ public class AuthorizeManger {
 
     public void setUser(MiheUserModel model) {
         this.user = model;
+        if (webInterface != null){
+            webInterface.user = model;
+        }
     }
 
     public void initWithUser(Context c, WebView wv, MiheUserModel model) {
-        setUser(model);
         init(c, wv);
+        webInterface = new WebAppInterface(c,null,model);
+        webView.addJavascriptInterface(webInterface, "mihe");
+    }
+
+    public void initWithHandler(Context c, WebView wv, AuthHandler handler) {
+        init(c, wv);
+        webInterface = new WebAppInterface(c,handler,null);
+        webView.addJavascriptInterface(webInterface, "mihe");
     }
 
     //接口名称自定义
     public class WebAppInterface {
         Context mContext;
+        AuthHandler handler;
+        MiheUserModel user;
 
-        WebAppInterface(Context c) {
+        WebAppInterface(Context c,AuthHandler ha,MiheUserModel u) {
             mContext = c;
+            handler = ha;
+            user = u;
         }
 
         @JavascriptInterface
@@ -56,11 +70,13 @@ public class AuthorizeManger {
         }
 
         @JavascriptInterface
-        public String getUserIdwithParams(String data,AuthHandler handler) {
-            MiheUserModel user = handler.handle(passedData);
-            if (user != null) {
-                Gson gson = new Gson();
-                return gson.toJson(user);
+        public String getUserIdwithParams(String data) {
+            if (handler != null ){
+                MiheUserModel user = handler.handle(passedData);
+                if (user != null) {
+                    Gson gson = new Gson();
+                    return gson.toJson(user);
+                }
             }
             return "";
         }
