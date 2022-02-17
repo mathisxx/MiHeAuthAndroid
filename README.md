@@ -55,4 +55,3 @@ Already  has user info :
      MiheUserModel user = getUser();
      manager.initWithUser(context, webView, user);
 ```
-
