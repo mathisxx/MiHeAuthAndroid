@@ -72,7 +72,8 @@ public class AuthorizeManger {
         @JavascriptInterface
         public String getUserIdwithParams(String data) {
             if (handler != null ){
-                MiheUserModel user = handler.handle(passedData);
+                AuthorizeManger.this.passedData = data;
+                MiheUserModel user = handler.handle(data);
                 if (user != null) {
                     Gson gson = new Gson();
                     return gson.toJson(user);
