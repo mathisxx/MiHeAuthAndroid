@@ -24,9 +24,7 @@ public class AuthorizeManger {
         mContext = c;
         webView.getSettings().setJavaScriptEnabled(true);
         String oldUA=  webView.getSettings().getUserAgentString();
-
         String newUA = oldUA+"Android;mihe";
-
         webView.getSettings().setUserAgentString(newUA );
     }
 

@@ -5,7 +5,7 @@
 Add this to your build.gradle and run sync:
 
 ```groovy
-implementation 'io.github.yl172326:MiHeAuthAndroid:1.2'
+implementation 'io.github.yl172326:MiHeAuthAndroid:1.3'
 ```
 
 **Manual installation**
