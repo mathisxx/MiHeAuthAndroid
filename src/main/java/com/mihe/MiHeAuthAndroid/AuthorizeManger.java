@@ -23,6 +23,11 @@ public class AuthorizeManger {
         webView = wv;
         mContext = c;
         webView.getSettings().setJavaScriptEnabled(true);
+        String oldUA=  webView.getSettings().getUserAgentString();
+
+        String newUA = oldUA+"Android;mihe";
+
+        webView.getSettings().setUserAgentString(newUA );
     }
 
     public String getAuthorizeDataFromH5() {
