@@ -105,7 +105,9 @@ public class MainActivity extends AppCompatActivity {
 
     MiheUserModel getUser() {
         MiheUserModel user = new MiheUserModel();
-        user.uid = "8098908908908";//用户id user.cert="cert666";//用户凭证，可以是token sessionid 等信息 user.img="img333";
+        user.uid = "8098908908908";//用户id
+        user.cert="cert666";//用户凭证，可以是token sessionid 等信息
+        user.img="img333";
         user.mobile = "17898888888";
         user.nickName = "nickname666";
         return user;
