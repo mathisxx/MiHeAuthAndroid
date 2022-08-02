@@ -43,8 +43,9 @@ manager.initWithHandler(context, webView, handler);
 
 Get  datas to verify html webpage :
 
-```objective-c
-String s = manager.getAuthorizeDataFromH5();//获取校验数据，可选
+```java
+ //only for customize
+//String s = manager.getAuthorizeDataFromH5();//获取校验数据，可选
 ```
 
 Already  has user info :
