@@ -26,7 +26,7 @@ import com.mihe.MiHeAuthAndroid.MiheUserModel;
 Instantiate MiHeAuth with a WebView:
 
 ```java
- 
+ //default using
 AuthHandler handler = new AuthHandler() {
         @Override
         public MiheUserModel handle(String passedData) {
@@ -50,8 +50,8 @@ String s = manager.getAuthorizeDataFromH5();//获取校验数据，可选
 Already  has user info :
 
 ```java
- //already has the user info
-     MiheUserModel user = getUser();
-     manager.initWithUser(context, webView, user);
+ //already has the user info ， only for customize
+ //   MiheUserModel user = getUser();
+ //  manager.initWithUser(context, webView, user);
 ```
 
