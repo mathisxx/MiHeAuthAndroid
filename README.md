@@ -32,8 +32,8 @@ AuthHandler handler = new AuthHandler() {
         public MiheUserModel handle(String passedData) {
     		//get the specified user with data passed from h5 page
         MiheUserModel user = getUser();
-        Gson gson = new Gson();
-        return gson.toJson(user);
+        
+        return user;
         }
     };
 
