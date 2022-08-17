@@ -55,4 +55,6 @@ Already  has user info :
  //   MiheUserModel user = getUser();
  //  manager.initWithUser(context, webView, user);
 ```
+if set minifyEnabled true ,add follows
 
+-keep class com.mihe.MiHeAuthAndroid.**{*;}
