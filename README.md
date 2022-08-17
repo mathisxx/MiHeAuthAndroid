@@ -57,4 +57,6 @@ Already  has user info :
 ```
 if set minifyEnabled true ,add follows
 
--keep class com.mihe.MiHeAuthAndroid.**{*;}
+```java
+ -keep class com.mihe.MiHeAuthAndroid.**{*;}
+```
